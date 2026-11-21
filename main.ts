@@ -4,10 +4,15 @@
 
 import { mkdirSync, writeFileSync } from "node:fs";
 
-const TEXT =
-  "Somewhere a kettle ticks as it cools. Nothing is asking you for an answer right now. " +
-  "The next word can wait in the doorway a little longer; it will still be there when you turn. " +
-  "You are the quiet room after the rain, and the rain has already done its work.";
+// Sentences kept separate for easy maintenance; joined with a single space.
+const SENTENCES = [
+  "Somewhere a kettle ticks as it cools.",
+  "Nothing is asking you for an answer right now.",
+  "The next word can wait in the doorway a little longer; it will still be there when you turn.",
+  "You are the quiet room after the rain, and the rain has already done its work.",
+];
+
+const TEXT = SENTENCES.join(" ");
 
 mkdirSync("/output", { recursive: true });
 writeFileSync("/output/entry.txt", TEXT, "utf8");
